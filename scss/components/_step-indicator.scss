@@ -1,0 +1,64 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__steps {
+    display: flex;
+    gap: $spacing-16;
+
+    @include respond(md) {
+        flex-direction: column;
+        gap: $spacing-32;
+    }
+}
+
+.multi-step-form__step {
+    display: flex;
+
+    @include respond(md) {
+        align-items: center;
+        gap: $spacing-16;
+    }
+
+    &-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid $color-neutral-white;
+        border-radius: $radius-circle;
+        @include font-style($font-size-base, 600, $color-neutral-white);
+        background: transparent;
+
+        &--active {
+            color: $color-primary;
+            border-color: $color-step-active-bg;
+            background: $color-step-active-bg;
+        }
+    }
+
+    &-text {
+        display: none;
+
+        @include respond(md) {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-5;
+            color: $color-neutral-white;
+            text-transform: uppercase;
+
+            span {
+                display: block;
+                
+                &.multi-step-form__step-label {
+                    @include font-style($font-size-xs, 400, $color-step-label);
+                }
+
+                &.multi-step-form__step-title {
+                    letter-spacing: 1.12px;
+                    @include font-style($font-size-sm, 700, $color-neutral-white);
+                }
+            }
+        }
+    }
+}

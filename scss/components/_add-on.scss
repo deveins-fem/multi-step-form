@@ -1,0 +1,77 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__addons {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-12;
+
+    @include respond(md) {
+        gap: $spacing-16;
+    }
+}
+
+.multi-step-form__addon {
+    display: flex;
+    align-items: center;
+    gap: $spacing-16;
+    padding: $spacing-16;
+    border-radius: $radius-md;
+    border: 1px solid $color-neutral-gray;
+    cursor: pointer;
+    background-color: transparent;
+
+    &-is-checked {
+        border-color: $color-accent;
+        background-color: $color-plan-selected;
+    }
+
+    @include respond(md) {
+        gap: $spacing-24;
+        padding: $spacing-20 $spacing-24;
+    }
+}
+
+.multi-step-form__addon-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: $color-accent;
+    cursor: pointer;
+}
+
+.multi-step-form__addon-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.multi-step-form__addon-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-5;
+}
+
+.multi-step-form__addon-name {
+    @include font-style($font-size-sm, 700, $color-primary);
+
+    @include respond(md) {
+        font-size: $font-size-base;
+    }
+}
+
+.multi-step-form__addon-description {
+    @include font-style($font-size-xs, 500, $color-neutral-gray);
+
+    @include respond(md) {
+        font-size: $font-size-sm;
+    }
+}
+
+.multi-step-form__addon-price {
+    @include font-style($font-size-xs, 700, $color-accent);
+
+    @include respond(md) {
+        font-size: $font-size-sm;
+    }
+}

@@ -1,0 +1,56 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__thank-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond(md) {
+        height: 100%;
+        margin: auto;
+    }
+}
+
+.multi-step-form__thank-you-icon {
+    margin-bottom: $spacing-24;
+
+    @include respond(md) {
+        margin-bottom: $spacing-32;
+    }
+
+    img {
+        width: 3.5rem;
+
+        @include respond(md) {
+            width: 5rem;
+        }
+    }
+}
+
+.multi-step-form__thank-you-title {
+    margin-bottom: $spacing-12;
+    @include font-style($font-size-lg, 700, $color-primary);
+
+    @include respond(md) {
+        margin-bottom: $spacing-16;
+        font-size: $font-size-xl;
+    }
+}
+
+.multi-step-form__thank-you-message {
+    width: 100%;
+    max-width: 50ch;
+    text-align: center;
+    line-height: 1.6;
+    @include font-style($font-size-base, 500, $color-neutral-gray);
+}
+
+.content-thank-you {
+    padding-block: 5rem;
+
+    @include respond(md) {
+        height: 100%;
+    }
+}

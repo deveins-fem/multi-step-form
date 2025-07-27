@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__sidebar {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-32;
+    height: auto;
+    min-height: 172px;
+    background: $bg-sidebar-mobile no-repeat center center;
+    background-size: cover;
+
+    @include respond(md) {
+        grid-area: sidebar;
+        justify-content: flex-start;
+        width: 274px;
+        height: 100%;
+        padding: $spacing-40 $spacing-32;
+        border-radius: $radius-md;
+        background: $bg-sidebar-desktop no-repeat center center;
+        background-size: cover;
+    }
+}

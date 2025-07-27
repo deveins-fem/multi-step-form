@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#473dff" />
+    <meta name="author" content="Deveins" />
+    <meta name="description" content="A clean and responsive multi-step form with step-by-step navigation, validation, and dynamic content switching." />
+    <meta name="keywords" content="multi-step form, form wizard, responsive form, JavaScript validation, step form UI, form transition" />
+      
+    <title>Multi Step Form</title>
+    
+    <link rel="icon" href="./assets/favicon/deveins-symbol.svg" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="canonical" href="https://deveins-fem.github.io/multi-step-form" />
+</head>
+
+<body>
+    <div class="multi-step-form">
+        <div class="multi-step-form__sidebar">
+            <ul class="multi-step-form__steps">
+                <li class="multi-step-form__step">
+                    <div class="multi-step-form__step-indicator" data-step-index="1">1</div>
+                    <div class="multi-step-form__step-text">
+                        <span class="multi-step-form__step-label">Step 1</span>
+                        <span class="multi-step-form__step-title">Your Info</span>
+                    </div>
+                </li>
+                <li class="multi-step-form__step">
+                    <div class="multi-step-form__step-indicator" data-step-index="2">2</div>
+                    <div class="multi-step-form__step-text">
+                        <span class="multi-step-form__step-label">Step 2</span>
+                        <span class="multi-step-form__step-title">Select Plan</span>
+                    </div>
+                </li>
+                <li class="multi-step-form__step">
+                    <div class="multi-step-form__step-indicator" data-step-index="3">3</div>
+                    <div class="multi-step-form__step-text">
+                        <span class="multi-step-form__step-label">Step 3</span>
+                        <span class="multi-step-form__step-title">Add-ons</span>
+                    </div>
+                </li>
+                <li class="multi-step-form__step">
+                    <div class="multi-step-form__step-indicator multi-step-form__step-indicator--active" data-step-index="4">4</div>
+                    <div class="multi-step-form__step-text">
+                        <span class="multi-step-form__step-label">Step 4</span>
+                        <span class="multi-step-form__step-title">Summary</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="multi-step-form__panel" data-step="1">
+            <div class="multi-step-form__content">
+                <h2 class="multi-step-form__title">Personal info</h2>
+                <p class="multi-step-form__description">
+                    Please provide your name, email address, and phone number.
+                </p>
+                <form class="multi-step-form__form" id="step1-form">
+                    <div class="multi-step-form__field">
+                        <div class="multi-step-form__label-wrapper">
+                            <label class="multi-step-form__label" for="name">Name</label>
+                            <span class="multi-step-form__error" id="name-error">This field is required</span>
+                        </div>
+                        <input class="multi-step-form__input" type="text" id="name" placeholder="e.g. Deveins Peter" />
+                    </div>
+                    <div class="multi-step-form__field">
+                        <div class="multi-step-form__label-wrapper">
+                            <label class="multi-step-form__label" for="email">Email Address</label>
+                            <span class="multi-step-form__error" id="email-error">This field is required</span>
+                        </div>
+                        <input class="multi-step-form__input" type="email" id="email" placeholder="e.g. deveinshq@gmail.com" />
+                    </div>
+                    <div class="multi-step-form__field">
+                        <div class="multi-step-form__label-wrapper">
+                            <label class="multi-step-form__label" for="phone">Phone Number</label>
+                            <span class="multi-step-form__error" id="phone-error">This field is required</span>
+                        </div>
+                        <input class="multi-step-form__input" type="tel" id="phone" placeholder="e.g. +234 704 909 6429" />
+                    </div>
+                </form>
+            </div>
+            <div class="multi-step-form__navigation">
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--next" data-action="next">
+                    Next Step
+                </button>
+            </div>
+        </div>
+
+        <div class="multi-step-form__panel" data-step="2">
+            <div class="multi-step-form__content">
+                <h2 class="multi-step-form__title">Select your plan</h2>
+                <p class="multi-step-form__description">
+                    You have the option of monthly or yearly billing.
+                </p>
+                <form class="multi-step-form__form multi-step-form__form--plans" id="step2-form">
+                    <fieldset class="multi-step-form__plans">
+                        <legend class="visually-hidden">Choose your billing plan</legend>
+                        <label class="multi-step-form__plan multi-step-form__plan--selected">
+                            <input type="radio" name="plan" value="arcade" hidden aria-label="Arcade Plan" />
+                            <div class="multi-step-form__plan-box">
+                                <img src="./assets/icons/icon-arcade.svg" alt="Arcade" />
+                                <div class="multi-step-form__plan-details">
+                                    <span class="multi-step-form__plan-name">Arcade</span>
+                                    <span class="multi-step-form__plan-price" data-plan="arcade">$9/mo</span>
+                                    <span class="multi-step-form__plan-offer" hidden>2 months free</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="multi-step-form__plan">
+                            <input type="radio" name="plan" value="advanced" hidden aria-label="Advanced Plan" />
+                            <div class="multi-step-form__plan-box">
+                                <img src="./assets/icons/icon-advanced.svg" alt="Advanced" />
+                                <div class="multi-step-form__plan-details">
+                                    <span class="multi-step-form__plan-name">Advanced</span>
+                                    <span class="multi-step-form__plan-price" data-plan="advanced">$12/mo</span>
+                                    <span class="multi-step-form__plan-offer" hidden>2 months free</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="multi-step-form__plan">
+                            <input type="radio" name="plan" value="pro" hidden aria-label="Pro Plan" />
+                            <div class="multi-step-form__plan-box">
+                                <img src="./assets/icons/icon-pro.svg" alt="Pro" />
+                                <div class="multi-step-form__plan-details">
+                                    <span class="multi-step-form__plan-name">Pro</span>
+                                    <span class="multi-step-form__plan-price" data-plan="pro">$15/mo</span>
+                                    <span class="multi-step-form__plan-offer" hidden>2 months free</span>
+                                </div>
+                            </div>
+                        </label>
+                    </fieldset>
+                    <div class="multi-step-form__toggle">
+                        <span class="multi-step-form__toggle-label">Monthly</span>
+                        <div class="multi-step-form__switch">
+                            <input type="checkbox" id="toggle">
+                            <label for="toggle" class="billing-toggle">
+                                <div class="multi-step-form__switch-slider"></div>
+                            </label>
+                        </div>
+                        <span class="multi-step-form__toggle-label">Yearly</span>
+                    </div>
+                </form>
+            </div>
+            <div class="multi-step-form__navigation">
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--back" data-action="back">
+                    Go Back
+                </button>
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--next" data-action="next">
+                    Next Step
+                </button>
+            </div>
+        </div>
+
+        <div class="multi-step-form__panel" data-step="3">
+            <div class="multi-step-form__content">
+                <h2 class="multi-step-form__title">Pick add-ons</h2>
+                <p class="multi-step-form__description">
+                    Add-ons help enhance your gaming experience.
+                </p>
+                <form class="multi-step-form__form" id="step3-form">
+                    <fieldset class="multi-step-form__addons">
+                        <legend class="visually-hidden">Choose your add-ons</legend>
+                        <label class="multi-step-form__addon multi-step-form__addon-is-checked">
+                            <input type="checkbox" name="addons" value="online-service" class="multi-step-form__addon-input" checked />
+                            <div class="multi-step-form__addon-box">
+                                <div class="multi-step-form__addon-content">
+                                    <span class="multi-step-form__addon-name">Online service</span>
+                                    <span class="multi-step-form__addon-description">Access to multiplayer games</span>
+                                </div>
+                                <span class="multi-step-form__addon-price" data-addon="online-service">+$1/mo</span>
+                            </div>
+                        </label>
+                        <label class="multi-step-form__addon">
+                            <input type="checkbox" name="addons" value="larger-storage" class="multi-step-form__addon-input"/>
+                            <div class="multi-step-form__addon-box">
+                                <div class="multi-step-form__addon-content">
+                                    <span class="multi-step-form__addon-name">Larger storage</span>
+                                    <span class="multi-step-form__addon-description">Extra 1TB of cloud save</span>
+                                </div>
+                                <span class="multi-step-form__addon-price" data-addon="larger-storage">+$2/mo</span>
+                            </div>
+                        </label>
+                        <label class="multi-step-form__addon">
+                            <input type="checkbox" name="addons" value="custom-profile" class="multi-step-form__addon-input" />
+                            <div class="multi-step-form__addon-box">
+                                <div class="multi-step-form__addon-content">
+                                    <span class="multi-step-form__addon-name">Customizable profile</span>
+                                    <span class="multi-step-form__addon-description">Custom theme on your profile</span>
+                                </div>
+                                <span class="multi-step-form__addon-price" data-addon="custom-profile">+$2/mo</span>
+                            </div>
+                        </label>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="multi-step-form__navigation">
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--back" data-action="back">
+                    Go Back
+                </button>
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--next" data-action="next">
+                    Next Step
+                </button>
+            </div>
+        </div>
+
+        <div class="multi-step-form__panel" data-step="4">
+            <div class="multi-step-form__content">
+                <h2 class="multi-step-form__title">Finishing up</h2>
+                <p class="multi-step-form__description">
+                    Double-check everything looks OK before confirming.
+                </p>
+                <div class="multi-step-form__summary">
+                    <!-- Plan Section -->
+                    <div class="multi-step-form__summary-plan">
+                        <div class="multi-step-form__summary-plan-header">
+                            <span class="multi-step-form__summary-plan-name">Arcade (Monthly)</span>
+                            <button type="button" class="multi-step-form__summary-change" data-action="change-plan">Change</button>
+                        </div>
+                        <span class="multi-step-form__summary-price">$9/mo</span>
+                    </div>
+                    <!-- Divider -->
+                    <hr class="multi-step-form__summary-divider" />
+                    <!-- Add-ons Section -->
+                    <div class="multi-step-form__summary-addons">
+                        <div class="multi-step-form__summary-addon">
+                            <span class="multi-step-form__summary-addon-name">Online service</span>
+                            <span class="multi-step-form__summary-addon-price">+$1/mo</span>
+                        </div>
+                        <div class="multi-step-form__summary-addon">
+                            <span class="multi-step-form__summary-addon-name">Larger storage</span>
+                            <span class="multi-step-form__summary-addon-price">+$2/mo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Total -->
+                <div class="multi-step-form__summary-total">
+                    <span class="multi-step-form__summary-total-label">Total (per month)</span>
+                    <span class="multi-step-form__summary-total-price">$12/mo</span>
+                </div>
+            </div>
+            <div class="multi-step-form__navigation">
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--back" data-action="back">
+                    Go Back
+                </button>
+                <button type="button" class="multi-step-form__btn multi-step-form__btn--next btn-confirm" data-action="next">
+                    Confirm
+                </button>
+            </div>
+        </div>
+
+        <div class="multi-step-form__panel" data-step="5">
+            <div class="multi-step-form__content content-thank-you">
+                <div class="multi-step-form__thank-you">
+                    <div class="multi-step-form__thank-you-icon">
+                        <img src="./assets/icons/icon-thank-you.svg" alt="Thank you" />
+                    </div>
+                    <h2 class="multi-step-form__thank-you-title">Thank you!</h2>
+                    <p class="multi-step-form__thank-you-message">
+                        Thanks for confirming your subscription! We hope you have fun using our platform.
+                        If you ever need support, please feel free to email us at deveinshq@gmail.com.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

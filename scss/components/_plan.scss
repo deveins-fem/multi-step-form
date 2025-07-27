@@ -1,0 +1,124 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__plans {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-12;
+    margin-bottom: $spacing-24;
+
+    @include respond(md) {
+        flex-direction: row;
+        gap: $spacing-18;
+        margin-bottom: $spacing-32;
+    }
+}
+
+.multi-step-form__plan {
+    flex: 1;
+    padding: $spacing-16;
+    border-radius: $radius-md;
+    border: 1px solid $color-neutral-gray;
+    cursor: pointer;
+    background-color: transparent;
+
+    &:hover {
+        border-color: $color-accent;
+    }
+
+    @include respond(md) {
+        padding: $spacing-20 $spacing-16;
+    }
+}
+
+.multi-step-form__plan--selected {
+    border: 1.5px solid $color-accent;
+    background-color: $color-plan-selected;
+}
+
+.multi-step-form__plan-box {
+    display: flex;
+    align-items: center;
+    gap: $spacing-14;
+
+    @include respond(md) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-45;
+    }
+}
+
+.multi-step-form__plan-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-5;
+}
+
+.multi-step-form__plan-name {
+    @include font-style($font-size-base, 700, $color-primary);
+}
+
+.multi-step-form__plan-price {
+    @include font-style($font-size-sm, 500, $color-neutral-gray);
+}
+
+.multi-step-form__plan-offer {
+    @include font-style($font-size-xs, 500, $color-primary);
+}
+
+.multi-step-form__toggle {
+    padding: $spacing-14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-24;
+    border-radius: $radius-md;
+    background-color: $color-plan-selected;
+
+    &-label {
+        @include font-style($font-size-sm, 700, $color-primary);
+    }
+}
+
+.multi-step-form__switch {
+    height: 1.25rem;
+    width: 2.375rem;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition:  transform 0.25s ease;
+
+    input[type='checkbox'] {
+        display: none;
+
+        &:checked + .billing-toggle {
+            background: $color-primary;
+
+            .multi-step-form__switch-slider {
+                transform: translate(18px);
+            }
+        }
+    }
+
+    .billing-toggle {
+        height: 100%;
+        width: 100%;
+        border-radius: $radius-pill;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background: $color-primary;
+        cursor: pointer;
+        transition: 0.3s linear;
+    }
+
+    .multi-step-form__switch-slider {
+        height: 0.75rem;
+        width: 0.75rem;
+        border-radius: $radius-circle;
+        margin: $spacing-4;
+        background: $color-neutral-white;
+        transition: 0.3s linear;
+    }
+}

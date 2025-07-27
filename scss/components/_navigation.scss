@@ -1,0 +1,53 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use 'sass:color';
+
+.multi-step-form__navigation {
+    display: flex;
+    margin-top: auto;
+    padding: $spacing-16;
+    background-color: $color-neutral-white;
+
+    @include respond(md) {
+        padding-inline: clamp(1.5rem, 6.5vw, 100px);
+    }
+}
+
+.multi-step-form__btn--next {
+    margin-left: auto;
+    padding: $padding-ui-element-block $padding-ui-element-inline;
+    border-radius: $radius-btn;
+    background-color: $color-primary;
+    transition: background-color 0.3s ease-in-out;
+    @include font-style($font-size-sm, 700, $color-neutral-white);
+
+    &:hover {
+        background-color: color.adjust($color-primary, $lightness: 15%);
+    }
+
+    &:active {
+        background-color: $color-primary;
+    }
+
+    &.btn-confirm {
+        padding: $spacing-16 $spacing-32;
+        background-color: $color-accent;
+
+        &:hover {
+            background-color: color.adjust($color-accent, $lightness: 15%);
+        }
+
+        &:active {
+            background-color: $color-accent;
+        }
+    }
+}
+
+.multi-step-form__btn--back {
+    transition: color 0.3s ease-in-out;
+    @include font-style($font-size-sm, 700, $color-neutral-gray);
+
+    &:hover {
+        color: $color-primary;
+    }
+}

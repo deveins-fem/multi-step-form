@@ -1,0 +1,59 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-16;
+
+    &--plans {
+        gap: 0;
+    }
+}
+
+.multi-step-form__label-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.multi-step-form__label {
+    margin-bottom: $spacing-5;
+    @include font-style($font-size-xs, 500, $color-primary);
+
+    @include respond(md) {
+        margin-bottom: $spacing-8;
+        font-size: $font-size-sm;
+    }
+}
+
+.multi-step-form__error {
+    display: none;
+    @include font-style($font-size-xs, 500, $color-error);
+
+    &.is-error {
+        display: block;
+    }
+}
+
+.multi-step-form__input {
+    width: 100%;
+    padding: $padding-ui-element-block $padding-ui-element-inline;
+    border: 1px solid $color-neutral-gray;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    @include font-style($font-size-base, 500, $color-primary);
+
+    &::placeholder {
+        @include font-style($font-size-base, 500, $color-neutral-gray);
+        opacity: 1;
+    }
+
+    &:focus {
+        border: 1.5px solid $color-accent;
+    }
+
+    &.is-invalid {
+        border-color: $color-error;
+    }
+}

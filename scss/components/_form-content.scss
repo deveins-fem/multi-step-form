@@ -1,0 +1,37 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__content {
+    margin-top: -4.5rem;
+    margin-inline: $spacing-16;
+    padding: $spacing-32 $spacing-24;
+    border-radius: $radius-md;
+    background-color: $color-neutral-white;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+
+    @include respond(md) {
+        margin: 0;
+        box-shadow: none;
+        padding-block: $spacing-40;
+        padding-inline: clamp(1.5rem, 6.5vw, 100px);
+    }
+}
+
+.multi-step-form__title {
+    margin-bottom: $spacing-8;
+    @include font-style($font-size-lg, 700, $color-primary);
+
+    @include respond(md) {
+        font-size: 2rem;
+    }
+}
+
+.multi-step-form__description {
+    margin-bottom: $spacing-20;
+    line-height: 1.6;
+    @include font-style($font-size-base, 400, $color-neutral-gray);
+
+    @include respond(md) {
+        margin-bottom: $spacing-40;
+    }
+}

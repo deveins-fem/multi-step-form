@@ -1,0 +1,116 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.multi-step-form__summary {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-16;
+    margin-bottom: $spacing-5;
+    padding: $spacing-20 $spacing-16;
+    border-radius: $radius-md;
+    background-color: $color-plan-selected;
+
+    @include respond(md) {
+        gap: $spacing-24;
+        padding: $spacing-24;
+    }
+}
+
+.multi-step-form__summary-plan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.multi-step-form__summary-plan-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-5;
+
+    @include respond(md) {
+        gap: $spacing-8;
+    }
+}
+
+.multi-step-form__summary-plan-name {
+    @include font-style($font-size-sm, 700, $color-primary);
+
+    @include respond(md) {
+        font-size: $font-size-base;
+    }
+}
+
+.multi-step-form__summary-change {
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+    @include font-style($font-size-sm, 700, $color-neutral-gray);
+
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+.multi-step-form__summary-price {
+    @include font-style($font-size-sm, 700, $color-primary);
+
+    @include respond(md) {
+        font-size: $font-size-base;
+    }
+}
+
+.multi-step-form__summary-divider {
+    opacity: 0.3;
+    border: none;
+    height: 1px;
+    background-color: $color-neutral-gray;
+}
+
+.multi-step-form__summary-addons {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-16;
+
+    @include respond(md) {
+        gap: $spacing-20;
+    }
+}
+
+.multi-step-form__summary-addon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.multi-step-form__summary-addon-name {
+    @include font-style($font-size-sm, 500, $color-neutral-gray);
+}
+
+.multi-step-form__summary-addon-price {
+    @include font-style($font-size-sm, 500, $color-primary);
+}
+
+.multi-step-form__summary-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-20 $spacing-16;
+    padding-bottom: 0;
+
+    @include respond(md) {
+        padding: $spacing-24;
+        padding-bottom: 0;
+    }
+}
+
+.multi-step-form__summary-total-label {
+    @include font-style($font-size-sm, 500, $color-neutral-gray);
+}
+
+.multi-step-form__summary-total-price {
+    @include font-style($font-size-base, 700, $color-accent);
+
+    @include respond(md) {
+        font-size: $font-size-md;
+    }
+}
