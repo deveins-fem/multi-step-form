@@ -117,8 +117,6 @@ Frontend Developer & UI Engineer
 
 ---
 
----
-
 ## 📚 What I Learned
 
 - How to manage multi-step UI with modular JavaScript
