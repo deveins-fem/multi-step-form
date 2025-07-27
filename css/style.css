@@ -137,7 +137,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   padding: 2rem;
   height: auto;
   min-height: 172px;
-  background: url("/assets/images/bg-sidebar-mobile.svg") no-repeat center center;
+  background: hsl(213, 96%, 18%) url("/assets/images/bg-sidebar-mobile.svg") no-repeat center center;
   background-size: cover;
 }
 @media (min-width: 48rem) {
@@ -148,7 +148,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     height: 100%;
     padding: 2.5rem 2rem;
     border-radius: 0.625rem;
-    background: url("/assets/images/bg-sidebar-desktop.svg") no-repeat center center;
+    background: hsl(213, 96%, 18%) url("/assets/images/bg-sidebar-desktop.svg") no-repeat center center;
     background-size: cover;
   }
 }

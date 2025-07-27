@@ -7,7 +7,7 @@
     padding: $spacing-32;
     height: auto;
     min-height: 172px;
-    background: $bg-sidebar-mobile no-repeat center center;
+    background: $color-primary $bg-sidebar-mobile no-repeat center center;
     background-size: cover;
 
     @include respond(md) {
@@ -17,7 +17,7 @@
         height: 100%;
         padding: $spacing-40 $spacing-32;
         border-radius: $radius-md;
-        background: $bg-sidebar-desktop no-repeat center center;
+        background: $color-primary $bg-sidebar-desktop no-repeat center center;
         background-size: cover;
     }
 }
