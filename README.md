@@ -91,7 +91,7 @@ multi-step-form/
 
 ## 🚀 Live Demo
 
-🔗 **Live URL** → [Open Live Site](https://deveins-multi-step-form.netlify.app/)
+🔗 **Live URL** → [deveins-multi-step-form.netlify.app]](https://deveins-multi-step-form.netlify.app/)
 
 ---
 
